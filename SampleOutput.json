@@ -1,0 +1,93 @@
+// --- Openweather API Response ---
+
+{
+  "coord": {
+    "lon": 10.99,
+    "lat": 44.34
+  },
+  "weather": [
+    {
+      "id": 501,
+      "main": "Rain",
+      "description": "moderate rain",
+      "icon": "10n"
+    }
+  ],
+  "base": "stations",
+  "main": {
+    "temp": 287.87,
+    "feels_like": 287.85,
+    "temp_min": 285.16,
+    "temp_max": 289.56,
+    "pressure": 987,
+    "humidity": 94,
+    "sea_level": 987,
+    "grnd_level": 904
+  },
+  "visibility": 7460,
+  "wind": {
+    "speed": 3.56,
+    "deg": 198,
+    "gust": 9.16
+  },
+  "rain": {
+    "1h": 2.88
+  },
+  "clouds": {
+    "all": 100
+  },
+  "dt": 1698951398,
+  "sys": {
+    "type": 2,
+    "id": 2044440,
+    "country": "IT",
+    "sunrise": 1698904425,
+    "sunset": 1698941122
+  },
+  "timezone": 3600,
+  "id": 3163858,
+  "name": "Zocca",
+  "cod": 200
+}
+
+
+// --- Geodb API Response ---
+
+{
+  "data": [
+    {
+      "id": 147579,
+      "wikiDataId": "Q33377",
+      "type": "CITY",
+      "city": "Jalandhar",
+      "name": "Jalandhar",
+      "country": "India",
+      "countryCode": "IN",
+      "region": "Punjab",
+      "regionCode": "PB",
+      "regionWdId": "Q22424",
+      "latitude": 31.325555555,
+      "longitude": 75.579166666,
+      "population": 873725
+    },
+    {
+      "id": 3354465,
+      "wikiDataId": "Q1817425",
+      "type": "ADM2",
+      "city": "Jalandhar District",
+      "name": "Jalandhar District",
+      "country": "India",
+      "countryCode": "IN",
+      "region": "Punjab",
+      "regionCode": "PB",
+      "regionWdId": "Q22424",
+      "latitude": 31.33,
+      "longitude": 75.57,
+      "population": 2193590
+    }
+  ],
+  "metadata": {
+    "currentOffset": 0,
+    "totalCount": 2
+  }
+}
