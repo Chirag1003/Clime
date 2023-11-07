@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { AsyncPaginate } from "react-select-async-paginate";
-import { GEO_API_URL, GEO_API_OPTIONS } from "../API/Api";
+import { fetchCities } from "../API/Api";
 
 const Search = ({ onSearchChange }) => {
   const [search, setSearch] = useState(null);
@@ -12,13 +12,9 @@ const Search = ({ onSearchChange }) => {
 
   const loadOptions = async (inputValue) => {
     try {
-      const response = await fetch(
-        `${GEO_API_URL}/cities?minPopulation=100000&namePrefix=${inputValue}`,
-        GEO_API_OPTIONS
-      );
-      const responseJSON = await response.json();
+      const citiesList = await fetchCities(inputValue);
       return {
-        options: responseJSON.data.map((city) => {
+        options: citiesList.data.map((city) => {
           return {
             value: `${city.latitude} ${city.longitude}`,
             label: `${city.name}, ${city.countryCode}`,
@@ -26,7 +22,7 @@ const Search = ({ onSearchChange }) => {
         }),
       };
     } catch (error) {
-      return error;
+      console.log(error);
     }
   };
 
