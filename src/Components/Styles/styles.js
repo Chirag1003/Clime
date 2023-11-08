@@ -27,6 +27,110 @@ const useStyles = makeStyles((muiTheme) => ({
     marginBottom: "1rem",
   },
 
+  emptyContainer: {
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "center",
+    justifyContent: "center",
+    width: "100%",
+    minHeight: "500px",
+  },
+
+  emptyContainerText: {
+    [theme.breakpoints.up("xs")]: {
+      fontSize: "14px !important",
+    },
+    [theme.breakpoints.up("sm")]: {
+      fontSize: "16px !important",
+    },
+    color: "rgba(255,255,255, .85)",
+    fontFamily: "Poppins",
+    textAlign: "center",
+    margin: "2rem 0 !important",
+    maxWidth: "80%",
+    lineHeight: "22px",
+  },
+
+  emptyContainerImg: {
+    [theme.breakpoints.up("xs")]: {
+      fontSize: "100px !important",
+    },
+    [theme.breakpoints.up("sm")]: {
+      fontSize: "120px !important",
+    },
+    [theme.breakpoints.up("md")]: {
+      fontSize: "140px !important",
+    },
+  },
+
+  loadingContainer: {
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+    width: "100%",
+    minHeight: "500px",
+  },
+
+  loadingContainerBox: {
+    display: "flex",
+    justifyContent: "center",
+    flexDirection: "column",
+    alignItems: "center",
+    gap: "1rem",
+  },
+
+  loadingContainerImg: {
+    color: "rgba(255,255,255, .8)",
+  },
+
+  loadingContainerText: {
+    [theme.breakpoints.up("xs")]: {
+      fontSize: "12px !important",
+    },
+    [theme.breakpoints.up("sm")]: {
+      fontSize: "14px !important",
+    },
+    color: "rgba(255, 255, 255, .8)",
+    lineHeight: 1,
+    fontFamily: "Poppins",
+  },
+
+  errorContainer: {
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+    margin: "3rem auto",
+    gap: "8px",
+    flex: "inherit",
+    width: "auto",
+    padding: "1rem",
+    [theme.breakpoints.up("xs")]: {
+      flexDirection: "column !important",
+    },
+    [theme.breakpoints.up("sm")]: {
+      flexDirection: "row !important",
+    },
+    color: "#DC2941",
+    border: "1px solid #DC2941",
+    borderRadius: "8px",
+    background: "rgba(220, 41, 65, .25)",
+  },
+
+  errorContainerImg: {
+    fontSize: "24px",
+  },
+
+  errorContainerText: {
+    [theme.breakpoints.up("xs")]: {
+      fontSize: "14px !important",
+    },
+    [theme.breakpoints.up("sm")]: {
+      fontSize: "16px !important",
+    },
+    fontFamily: "Poppins",
+    textAlign: "center",
+  },
+
   topBox: {
     display: "flex",
     justifyContent: "space-between",
@@ -306,13 +410,12 @@ const useStyles = makeStyles((muiTheme) => ({
       fontSize: "14px !important",
       marginBottom: "0",
     },
-    fontWeight: '600',
-    color: 'white',
-    textTransform: 'uppercase',
+    fontWeight: "600",
+    color: "white",
+    textTransform: "uppercase",
     lineHeight: 1,
-    fontFamily: 'Poppins',
+    fontFamily: "Poppins",
   },
-
 }));
 
 export default useStyles;
