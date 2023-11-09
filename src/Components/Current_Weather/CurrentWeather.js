@@ -27,7 +27,7 @@ const CurrentWeather = ({data, forecastList}) => {
         </Grid>
         <Grid item xs={4} className={classes.top} >
           <Box className={classes.city}>
-            <Typography variant="h3" component="h3" className={classes.cityName} >{Math.round(data.main.temp)}°C</Typography>
+            <Typography variant="h3" component="h3" className={classes.cityName} >{Math.round(data.main.temp)} °C</Typography>
             <Typography variant="h4" component="h4" className={classes.cityDate} >{data.weather[0].description}</Typography>
           </Box>
         </Grid>

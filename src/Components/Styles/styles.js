@@ -6,8 +6,9 @@ const useStyles = makeStyles((muiTheme) => ({
   container: {
     [theme.breakpoints.up("xs")]: {
       maxWidth: "95%",
-      borderRadius: "0",
-      boxShadow: "none",
+      borderRadius: "0.5rem",
+      boxShadow:
+        "rgba(0,0,0, 0.5) 0px 10px 15px -3px, rgba(0,0,0, 0.5) 0px 4px 6px -2px",
     },
     [theme.breakpoints.up("sm")]: {
       maxWidth: "80%",
@@ -21,10 +22,8 @@ const useStyles = makeStyles((muiTheme) => ({
     backgroundImage: `url(${SplashIcon})`,
     width: "100%",
     height: "100%",
-    margin: "0 auto",
+    margin: "2.5% auto",
     padding: "1rem 0 3rem",
-    marginTop: "2rem",
-    marginBottom: "1rem",
   },
 
   emptyContainer: {
@@ -139,6 +138,19 @@ const useStyles = makeStyles((muiTheme) => ({
     marginBottom: "1rem",
   },
 
+  appLogo: {
+    [theme.breakpoints.up("xs")]: {
+      height: "26px",
+    },
+    [theme.breakpoints.up("sm")]: {
+      height: "30px",
+    },
+    [theme.breakpoints.up("md")]: {
+      height: "32px",
+    },
+    width: "auto",
+  },
+
   topTime: {
     [theme.breakpoints.up("xs")]: {
       fontSize: "12px !important",
@@ -154,13 +166,13 @@ const useStyles = makeStyles((muiTheme) => ({
 
   git_icon: {
     [theme.breakpoints.up("xs")]: {
-      fontSize: "22px !important",
+      fontSize: "26px !important",
     },
     [theme.breakpoints.up("sm")]: {
-      fontSize: "25px !important",
+      fontSize: "30px !important",
     },
     [theme.breakpoints.up("md")]: {
-      fontSize: "30px !important",
+      fontSize: "32px !important",
     },
     color: "white",
     "&:hover": { color: "#2d95bd" },

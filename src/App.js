@@ -9,6 +9,7 @@ import { currentDateTime } from "./Components/Constants/Time";
 import { fetchWeatherData, getTodayForecastWeather } from './Components/API/Api';
 import { transformDateFormat } from "./Components/Constants/Time";
 import { ReactComponent as SplashIcon } from './Components/Styles/moonIcon.svg';
+import Logo from "./Components/Styles/logo.png"
 import React, { useState } from 'react';
 
 
@@ -87,9 +88,7 @@ function App() {
         <Grid container columnSpacing={2}>
           <Grid item xs={12}>
             <Box className={classes.topBox}>
-              <Typography variant="h6" sx={{ color: "white" }}>
-                Clime
-              </Typography>
+              <Box component="img" alt="logo" src={Logo} className={classes.appLogo}/>
               <Typography variant="body2" className={classes.topTime}>
                 {dateTime}
               </Typography>

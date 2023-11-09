@@ -13,7 +13,7 @@ const WEATHER_API_KEY = process.env.REACT_APP_WEATHER_API_KEY;
 export async function fetchCities(input) {
   try {
     const response = await fetch(
-      `${GEO_API_URL}/cities?minPopulation=50000&namePrefix=${input}`,
+      `${GEO_API_URL}/cities?minPopulation=10000&namePrefix=${input}`,
       GEO_API_OPTIONS
     );
 
