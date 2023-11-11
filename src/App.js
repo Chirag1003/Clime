@@ -88,7 +88,7 @@ function App() {
         <Grid container columnSpacing={2}>
           <Grid item xs={12}>
             <Box className={classes.topBox}>
-              <Box component="img" alt="logo" src={Logo} className={classes.appLogo}/>
+              <Box component="img" alt="Website Logo" src={Logo} className={classes.appLogo}/>
               <Typography variant="body2" className={classes.topTime}>
                 {dateTime}
               </Typography>
