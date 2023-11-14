@@ -2,12 +2,15 @@ import React from 'react';
 import { Box, Grid, Typography } from "@mui/material";
 import ThermostatIcon from '@mui/icons-material/Thermostat';
 import AirIcon from '@mui/icons-material/Air';
-import VisibilityIcon from '@mui/icons-material/Visibility';
+import CloudIcon from '@mui/icons-material/FilterDrama';
 import HumidityIcon from '@mui/icons-material/Opacity';
 import useStyles from "../Styles/styles";
+import { getWeekDays } from '../Constants/Time';
 
-const WeekWeather = () => {
+const WeekWeather = ({data}) => {
     const classes = useStyles();
+
+    const forecastDays = getWeekDays();
 
   return (
     <>
@@ -16,35 +19,37 @@ const WeekWeather = () => {
             <Typography variant="h5" component="h5" className={classes.weekSectionHeader} >Weekly Forecast</Typography>
         </Grid>
         <Grid item container xs={12} className={classes.weeksWeatherContainer} >
-            <Grid item xs={12} className={classes.weeksWeatherBox}>
-                <Grid container className={classes.weeksWeatherBox1}>
-                    <Typography xs={12} className={classes.weeksWeatherDay}>Sunday</Typography>
-                    <Box xs={12} className={classes.weeksWeatherDescription}>
-                        <Box component="img" alt="Weather Icon" className={classes.weeksWeatherImg} src={`assets/weather_icons/01d.png`} />
-                        <Typography variant="h4" component="h4" className={classes.weeksWeatherDescriptionDetail} >Description</Typography>
-                    </Box>
+            {data.list.slice(0,6).map((item, idx) => (
+                <Grid item key={idx} xs={12} className={classes.weeksWeatherBox}>
+                    <Grid container className={classes.weeksWeatherBox1}>
+                        <Typography xs={12} className={classes.weeksWeatherDay}>{forecastDays[idx]}</Typography>
+                        <Box xs={12} className={classes.weeksWeatherDescription}>
+                            <Box component="img" alt="Weather Icon" className={classes.weeksWeatherImg} src={`assets/weather_icons/${item.weather[0].icon}.png`} />
+                            <Typography variant="h4" component="h4" className={classes.weeksWeatherDescriptionDetail} >{item.weather[0].description}</Typography>
+                        </Box>
+                    </Grid>
+                    <Grid container className={classes.weeksWeatherBox2}>
+                        <Box className={classes.weeksWeatherCondition}>
+                            <ThermostatIcon className={classes.weeksWeatherConditionImg}/>
+                            <Typography variant="p" component="p" className={classes.weeksWeatherConditionDetail}>{Math.round(item.main.temp)} °C</Typography>
+                        </Box>
+                        <Box className={classes.weeksWeatherCondition}>
+                            <AirIcon className={classes.weeksWeatherConditionImg}/>
+                            <Typography variant="p" component="p" className={classes.weeksWeatherConditionDetail}>{Math.round(item.wind.speed)} m/s</Typography>
+                        </Box>
+                    </Grid>
+                    <Grid container className={classes.weeksWeatherBox2}>
+                        <Box className={classes.weeksWeatherCondition}>
+                            <HumidityIcon className={classes.weeksWeatherConditionImg}/>
+                            <Typography variant="p" component="p" className={classes.weeksWeatherConditionDetail}>{Math.round(item.main.humidity)}%</Typography>
+                        </Box>
+                        <Box className={classes.weeksWeatherCondition}>
+                            <CloudIcon className={classes.weeksWeatherConditionImg}/>
+                            <Typography variant="p" component="p" className={classes.weeksWeatherConditionDetail}>{item.clouds.all}%</Typography>
+                        </Box>
+                    </Grid>
                 </Grid>
-                <Grid container className={classes.weeksWeatherBox2}>
-                    <Box className={classes.weeksWeatherCondition}>
-                        <ThermostatIcon className={classes.weeksWeatherConditionImg}/>
-                        <Typography variant="p" component="p" className={classes.weeksWeatherConditionDetail}>15 °C</Typography>
-                    </Box>
-                    <Box className={classes.weeksWeatherCondition}>
-                        <AirIcon className={classes.weeksWeatherConditionImg}/>
-                        <Typography variant="p" component="p" className={classes.weeksWeatherConditionDetail}>5 m/s</Typography>
-                    </Box>
-                </Grid>
-                <Grid container className={classes.weeksWeatherBox2}>
-                    <Box className={classes.weeksWeatherCondition}>
-                        <HumidityIcon className={classes.weeksWeatherConditionImg}/>
-                        <Typography variant="p" component="p" className={classes.weeksWeatherConditionDetail}>50 %</Typography>
-                    </Box>
-                    <Box className={classes.weeksWeatherCondition}>
-                        <VisibilityIcon className={classes.weeksWeatherConditionImg}/>
-                        <Typography variant="p" component="p" className={classes.weeksWeatherConditionDetail}>8 Km</Typography>
-                    </Box>
-                </Grid>
-            </Grid>
+            ))}
         </Grid>
         
       </Grid>

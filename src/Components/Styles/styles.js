@@ -355,6 +355,7 @@ const useStyles = makeStyles((muiTheme) => ({
   },
 
   hourForecastGrid: {
+    paddingTop: "0 !important",
     display: "flex",
     flexDirection: "column",
     alignItems: "center",
@@ -450,7 +451,7 @@ const useStyles = makeStyles((muiTheme) => ({
   weeksWeatherContainer: {
     display: "flex",
     flexDirection: "column",
-    gap: "4px",
+    gap: "5px",
   },
 
   weeksWeatherBox: {

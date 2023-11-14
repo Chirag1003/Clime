@@ -1,4 +1,4 @@
-import { MONTHS } from "./AllConstant";
+import { MONTHS, DAYS } from "./AllConstant";
 
 const date = new Date();
 
@@ -36,4 +36,10 @@ export function transformDateFormat() {
 
   const newFormatDate = year.toString().concat("-", month, "-", day, " ", time);
   return newFormatDate;
+}
+
+export function getWeekDays() {
+  const day = new Date().getDay();
+  const days = DAYS.slice(day, DAYS.length).concat(DAYS.slice(0, day));
+  return days;
 }

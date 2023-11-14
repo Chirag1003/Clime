@@ -67,7 +67,7 @@ function App() {
           <CurrentWeather data={todayWeather} forecastList={todayForecast}/>
         </Grid>
         <Grid item xs={12} md={6}>
-          <WeekWeather/>
+          <WeekWeather data={weekForecast}/>
         </Grid>
       </React.Fragment>
     );
