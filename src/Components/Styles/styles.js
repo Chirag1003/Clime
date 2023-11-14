@@ -240,20 +240,20 @@ const useStyles = makeStyles((muiTheme) => ({
   },
 
   cityName: {
-    fontFamily: "Poppins",
-    fontWeight: "600",
+    fontFamily: "Poppins !important",
+    fontWeight: "600 !important",
     color: "white",
     textTransform: "uppercase",
     lineHeight: 1,
     marginBottom: "8px",
     [theme.breakpoints.up("xs")]: {
-      fontSize: "12px !important",
+      fontSize: "13px !important",
     },
     [theme.breakpoints.up("sm")]: {
-      fontSize: "14px !important",
+      fontSize: "15px !important",
     },
     [theme.breakpoints.up("md")]: {
-      fontSize: "16px !important",
+      fontSize: "17px !important",
     },
   },
 
@@ -427,6 +427,160 @@ const useStyles = makeStyles((muiTheme) => ({
     textTransform: "uppercase",
     lineHeight: 1,
     fontFamily: "Poppins",
+  },
+
+  weekSectionHeader: {
+    [theme.breakpoints.up("xs")]: {
+      fontSize: "14px !important",
+    },
+    [theme.breakpoints.up("sm")]: {
+      fontSize: "18px !important",
+    },
+    [theme.breakpoints.up("md")]: {
+      fontSize: "20px !important",
+    },
+    color: "rgba(255,255,255,.7)",
+    fontWeight: "600 !important",
+    lineHeight: 1,
+    textAlign: "center",
+    fontFamily: "Roboto Condensed",
+    margin: "0 0 0.8rem !important",
+  },
+
+  weeksWeatherContainer: {
+    display: "flex",
+    flexDirection: "column",
+    gap: "4px",
+  },
+
+  weeksWeatherBox: {
+    display: "flex",
+    alignItems: "center",
+    padding: "2px 0 2px",
+    background:
+      "linear-gradient(180deg, rgba(255, 255, 255, 10%) 0%, rgba(171, 203, 222, 50%) 100%) 0% 0%",
+    borderRadius: "8px",
+    boxShadow:
+      "rgba(0, 0, 0, 40%) 0px 10px 15px -3px, rgba(0, 0, 0, 10%) 0px 4px 6px -2px",
+  },
+
+  weeksWeatherBox1: {
+    display: "flex",
+    flexDirection: "column !important",
+    alignItems: "flex-start",
+    [theme.breakpoints.up("xs")]: {
+      paddingLeft: "12px !important",
+    },
+    [theme.breakpoints.up("sm")]: {
+      paddingLeft: "20px !important",
+    },
+    [theme.breakpoints.up("md")]: {
+      paddingLeft: "32px !important",
+    },
+  },
+
+  weeksWeatherDay: {
+    [theme.breakpoints.up("xs")]: {
+      fontSize: "13px !important",
+      fontWeight: "400 !important",
+    },
+    [theme.breakpoints.up("sm")]: {
+      fontSize: "14px !important",
+      fontWeight: "600 !important",
+    },
+    [theme.breakpoints.up("md")]: {
+      fontSize: "15px !important",
+    },
+    fontFamily: "Poppins",
+    color: "white",
+    lineHeight: 1,
+    height: "31px",
+    alignItems: "center",
+    display: "flex",
+  },
+
+  weeksWeatherDescription: {
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
+    height: "31px",
+  },
+
+  weeksWeatherImg: {
+    [theme.breakpoints.up("xs")]: {
+      width: "24px !important",
+    },
+    [theme.breakpoints.up("sm")]: {
+      width: "28px !important",
+    },
+    [theme.breakpoints.up("md")]: {
+      width: "31px !important",
+    },
+    height: "auto",
+    marginRight: "4px",
+  },
+
+  weeksWeatherDescriptionDetail: {
+    [theme.breakpoints.up("xs")]: {
+      fontSize: "12px !important",
+    },
+    [theme.breakpoints.up("md")]: {
+      fontSize: "14px !important",
+    },
+    color: "rgba(255,255,255, .8)",
+    lineHeight: 1,
+    fontFamily: "Roboto Condensed",
+  },
+
+  weeksWeatherBox2: {
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "center",
+    justifyContent: "center",
+  },
+
+  weeksWeatherCondition: {
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
+    height: "31px",
+    color: "rgba(255, 255, 255, .7)",
+    width: "100%",
+    [theme.breakpoints.up("xs")]: {
+      gap: "3px !important",
+    },
+    [theme.breakpoints.up("sm")]: {
+      gap: "4px !important",
+    },
+    [theme.breakpoints.up("md")]: {
+      gap: "6px !important",
+    },
+  },
+
+  weeksWeatherConditionImg: {
+    [theme.breakpoints.up("xs")]: {
+      fontSize: "15px !important",
+    },
+    [theme.breakpoints.up("sm")]: {
+      fontSize: "16px !important",
+    },
+    [theme.breakpoints.up("md")]: {
+      fontSize: "18px !important",
+    },
+  },
+
+  weeksWeatherConditionDetail: {
+    [theme.breakpoints.up("xs")]: {
+      fontSize: "12px !important",
+      fontWeight: "400",
+    },
+    [theme.breakpoints.up("sm")]: {
+      fontSize: "13px !important",
+      fontWeight: "600",
+    },
+    color: "white",
+    fontFamily: "Poppins",
+    lineHeight: 1,
   },
 }));
 

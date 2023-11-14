@@ -5,6 +5,7 @@ import ErrorOutlineIcon from '@mui/icons-material/ErrorOutline';
 import Search from "./Components/Search/Search";
 import useStyles from "./Components/Styles/styles";
 import CurrentWeather from "./Components/Current_Weather/CurrentWeather";
+import WeekWeather from "./Components/Week_Weather/WeekWeather";
 import { currentDateTime } from "./Components/Constants/Time";
 import { fetchWeatherData, getTodayForecastWeather } from './Components/API/Api';
 import { transformDateFormat } from "./Components/Constants/Time";
@@ -66,7 +67,7 @@ function App() {
           <CurrentWeather data={todayWeather} forecastList={todayForecast}/>
         </Grid>
         <Grid item xs={12} md={6}>
-          
+          <WeekWeather/>
         </Grid>
       </React.Fragment>
     );
