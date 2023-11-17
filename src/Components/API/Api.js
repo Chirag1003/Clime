@@ -43,7 +43,7 @@ export async function fetchWeatherData(lat, lon) {
   }
 }
 
-export const getTodayForecastWeather = ( response, current_date, current_datetime ) => {
+export const getTodayForecastWeather = ( response, current_date ) => {
   let all_today_forecasts = [];
 
   if (!response || Object.keys(response).length === 0 || response.cod === "404")
@@ -51,7 +51,7 @@ export const getTodayForecastWeather = ( response, current_date, current_datetim
   else
     response?.list.slice().map((item) => {
       if (item.dt_txt.startsWith(current_date.substring(0, 10))) {
-        if (item.dt > current_datetime) {
+        if (item.dt_txt > current_date) {
           all_today_forecasts.push({
             time: item.dt_txt.split(" ")[1].substring(0, 5),
             icon: item.weather[0].icon,
@@ -65,6 +65,6 @@ export const getTodayForecastWeather = ( response, current_date, current_datetim
   if (all_today_forecasts.length < 7) {
     return [...all_today_forecasts];
   } else {
-    return all_today_forecasts.slice(-6);
+    return all_today_forecasts.slice(-7,-1);
   }
 }

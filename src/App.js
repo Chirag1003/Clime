@@ -26,12 +26,10 @@ function App() {
   const handleOnSearchChange = async (searchData) => {
     const [lat, lon] = searchData.value.split(' ');
     const currentDate = transformDateFormat();
-    const date = new Date();
-    const dt_now = Math.floor(date.getTime() / 1000);
     setIsLoading(true);
     try {
       const [todayWeatherResponse, weekForecastResponse] = await fetchWeatherData(lat, lon);
-      const today_forecasts_list = getTodayForecastWeather(weekForecastResponse, currentDate, dt_now);
+      const today_forecasts_list = getTodayForecastWeather(weekForecastResponse, currentDate);
 
       setTodayWeather({ city: searchData.label, ...todayWeatherResponse });
       setTodayForecast([...today_forecasts_list]);

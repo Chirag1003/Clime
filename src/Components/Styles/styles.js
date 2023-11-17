@@ -11,13 +11,13 @@ const useStyles = makeStyles((muiTheme) => ({
         "rgba(0,0,0, 0.5) 0px 10px 15px -3px, rgba(0,0,0, 0.5) 0px 4px 6px -2px",
     },
     [theme.breakpoints.up("sm")]: {
-      maxWidth: "80%",
+      maxWidth: "95%",
       borderRadius: "1rem 1rem 1rem 1rem",
       boxShadow:
         "rgba(0,0,0, 0.5) 0px 10px 15px -3px, rgba(0,0,0, 0.5) 0px 4px 6px -2px",
     },
     [theme.breakpoints.up("md")]: {
-      maxWidth: "1100px",
+      maxWidth: "900px",
     },
     backgroundImage: `url(${SplashIcon})`,
     width: "100%",
@@ -355,7 +355,6 @@ const useStyles = makeStyles((muiTheme) => ({
   },
 
   hourForecastGrid: {
-    paddingTop: "0 !important",
     display: "flex",
     flexDirection: "column",
     alignItems: "center",
@@ -451,7 +450,7 @@ const useStyles = makeStyles((muiTheme) => ({
   weeksWeatherContainer: {
     display: "flex",
     flexDirection: "column",
-    gap: "5px",
+    gap: "8px",
   },
 
   weeksWeatherBox: {
