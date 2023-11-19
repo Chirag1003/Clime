@@ -68,3 +68,16 @@ export const getTodayForecastWeather = ( response, current_date ) => {
     return all_today_forecasts.slice(-7,-1);
   }
 }
+
+export const getWeekForecastWeather = ( response, current_date ) => {
+  let all_week_forecasts = [];
+
+  if (!response || Object.keys(response).length === 0 || response.cod === "404")
+    return [];
+  else 
+    all_week_forecasts = response.list.filter((item) => {
+      return (item.dt_txt.substring(0, 10) > current_date.substring(0, 10) && item.dt_txt.substring(11, 13) === "12");
+    });
+
+    return all_week_forecasts;
+}

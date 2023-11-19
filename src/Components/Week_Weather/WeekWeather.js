@@ -17,9 +17,10 @@ const WeekWeather = ({data}) => {
       <Grid container className={classes.section} >
         <Grid item xs={12}>
             <Typography variant="h5" component="h5" className={classes.weekSectionHeader} >Weekly Forecast</Typography>
+            <Typography variant="subtitle2" className={classes.todayForecast} >{`${data.length} available forecasts`}</Typography>
         </Grid>
         <Grid item container xs={12} className={classes.weeksWeatherContainer} >
-            {data.list.slice(0,6).map((item, idx) => (
+            {data.map((item, idx) => (
                 <Grid item key={idx} xs={12} className={classes.weeksWeatherBox}>
                     <Grid container className={classes.weeksWeatherBox1}>
                         <Typography xs={12} className={classes.weeksWeatherDay}>{forecastDays[idx]}</Typography>

@@ -7,7 +7,7 @@ import useStyles from "./Components/Styles/styles";
 import CurrentWeather from "./Components/Current_Weather/CurrentWeather";
 import WeekWeather from "./Components/Week_Weather/WeekWeather";
 import { currentDateTime } from "./Components/Constants/Time";
-import { fetchWeatherData, getTodayForecastWeather } from './Components/API/Api';
+import { fetchWeatherData, getTodayForecastWeather, getWeekForecastWeather } from './Components/API/Api';
 import { transformDateFormat } from "./Components/Constants/Time";
 import { ReactComponent as SplashIcon } from './Components/Styles/moonIcon.svg';
 import Logo from "./Components/Styles/logo.png"
@@ -30,10 +30,11 @@ function App() {
     try {
       const [todayWeatherResponse, weekForecastResponse] = await fetchWeatherData(lat, lon);
       const today_forecasts_list = getTodayForecastWeather(weekForecastResponse, currentDate);
+      const week_forecasts_list = getWeekForecastWeather(weekForecastResponse, currentDate);
 
       setTodayWeather({ city: searchData.label, ...todayWeatherResponse });
       setTodayForecast([...today_forecasts_list]);
-      setWeekForecast({ city: searchData.label, ...weekForecastResponse });
+      setWeekForecast([ ...week_forecasts_list ]);
     } catch (error) {
       setError(true);
     }

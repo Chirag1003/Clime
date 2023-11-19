@@ -228,6 +228,7 @@ const useStyles = makeStyles((muiTheme) => ({
     fontWeight: "400",
     textAlign: "center",
     fontFamily: "Roboto Condensed",
+    marginBottom: "1rem !important",
   },
 
   city: {
@@ -351,7 +352,6 @@ const useStyles = makeStyles((muiTheme) => ({
     display: "flex",
     justifyContent: "center",
     width: "fit-content",
-    marginTop: "0.8rem !important",
   },
 
   hourForecastGrid: {
@@ -364,6 +364,7 @@ const useStyles = makeStyles((muiTheme) => ({
     [theme.breakpoints.up("sm")]: {
       marginBottom: "0rem",
     },
+    padding: "12px 0 0 12px !important",
   },
 
   hourForecastBox: {
@@ -444,13 +445,12 @@ const useStyles = makeStyles((muiTheme) => ({
     lineHeight: 1,
     textAlign: "center",
     fontFamily: "Roboto Condensed",
-    margin: "0 0 0.8rem !important",
   },
 
   weeksWeatherContainer: {
     display: "flex",
     flexDirection: "column",
-    gap: "8px",
+    gap: "12px",
   },
 
   weeksWeatherBox: {
