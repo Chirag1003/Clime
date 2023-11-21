@@ -11,40 +11,82 @@ import { fetchWeatherData, getTodayForecastWeather, getWeekForecastWeather } fro
 import { transformDateFormat } from "./Components/Constants/Time";
 import { ReactComponent as SplashIcon } from './Components/Styles/moonIcon.svg';
 import Logo from "./Components/Styles/logo.png"
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 
 
 function App() {
   const classes = useStyles();
 
+  const [lat, setLat] = useState();
+  const [lon, setLon] = useState();
   const [todayWeather, setTodayWeather] = useState(null);
-  const [todayForecast, setTodayForecast] = useState([]); 
+  const [todayForecast, setTodayForecast] = useState(null); 
   const [weekForecast, setWeekForecast] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(false);
 
-  const handleOnSearchChange = async (searchData) => {
-    const [lat, lon] = searchData.value.split(' ');
-    const currentDate = transformDateFormat();
-    setIsLoading(true);
-    try {
-      const [todayWeatherResponse, weekForecastResponse] = await fetchWeatherData(lat, lon);
-      const today_forecasts_list = getTodayForecastWeather(weekForecastResponse, currentDate);
-      const week_forecasts_list = getWeekForecastWeather(weekForecastResponse, currentDate);
+  const fetchData = async () => {
+    if (lat&&lon) {
+      setIsLoading(true);
+      try {
+          const currentDate = transformDateFormat();
+          const [todayWeatherResponse, weekForecastResponse] = await fetchWeatherData(lat, lon);
+          const today_forecasts_list = getTodayForecastWeather(weekForecastResponse, currentDate);
+          const week_forecasts_list = getWeekForecastWeather(weekForecastResponse, currentDate);
+          const city = todayWeatherResponse.name + ", " + todayWeatherResponse.sys.country;
+          
+          setTodayWeather({ city, ...todayWeatherResponse });
+          setTodayForecast([...today_forecasts_list]);
+          setWeekForecast([...week_forecasts_list]);
 
-      setTodayWeather({ city: searchData.label, ...todayWeatherResponse });
-      setTodayForecast([...today_forecasts_list]);
-      setWeekForecast([ ...week_forecasts_list ]);
-    } catch (error) {
-      setError(true);
+          document.title = `Clime - ${city}`;
+
+          setIsLoading(false);
+        }
+      catch (error) {
+        setError(error);
+        setIsLoading(false);
+      }
     }
-    setIsLoading(false);
+  };
+
+  useEffect(() => {
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(
+        (position) => {
+          setLat(position.coords.latitude);
+          setLon(position.coords.longitude);
+        }
+      );
+    } else {
+      console.log("Geolocation is not supported by your browser. Please use latest browser.");
+    }
+  }, []);
+
+  useEffect(() => {
+    const fetchDataAndHandleError = async () => {
+      try {
+        await fetchData();
+      } catch (error) {
+        setError(error);
+        setIsLoading(false);
+      }
+    };
+  
+    fetchDataAndHandleError();
+    // eslint-disable-next-line
+  }, [lat,lon]); 
+  
+  
+  const handleOnSearchChange = (searchData) => {
+    setLat(searchData.value.split(' ')[0]);
+    setLon(searchData.value.split(' ')[1]);
   };
 
   let weatherContent = (
     <Box xs={12} className={classes.emptyContainer}>
       <SvgIcon component={SplashIcon} inheritViewBox className={classes.emptyContainerImg} />
-      <Typography variant="h4" component="h4" className={classes.emptyContainerText}>Explore current weather data and 6-day forecast of your city.</Typography>
+      <Typography variant="h4" component="h4" className={classes.emptyContainerText}>Enable location services or manually search for your city to discover current weather conditions and a 4-5 day forecast for your city.</Typography>
     </Box>
   );
 
