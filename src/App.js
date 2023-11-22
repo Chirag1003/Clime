@@ -2,15 +2,16 @@ import { Box, Container, Grid, Link, Typography, SvgIcon } from "@mui/material";
 import GitHubIcon from "@mui/icons-material/GitHub";
 import CircularProgress from '@mui/material/CircularProgress';
 import ErrorOutlineIcon from '@mui/icons-material/ErrorOutline';
+import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import Search from "./Components/Search/Search";
 import useStyles from "./Components/Styles/styles";
 import CurrentWeather from "./Components/Current_Weather/CurrentWeather";
 import WeekWeather from "./Components/Week_Weather/WeekWeather";
-import { currentDateTime } from "./Components/Constants/Time";
 import { fetchWeatherData, getTodayForecastWeather, getWeekForecastWeather } from './Components/API/Api';
 import { transformDateFormat } from "./Components/Constants/Time";
 import { ReactComponent as SplashIcon } from './Components/Styles/moonIcon.svg';
-import Logo from "./Components/Styles/logo.png"
+import Logo from "./Components/Styles/logo.png";
+import Bmc from "./Components/Styles/bmc.png";
 import React, { useEffect, useState } from 'react';
 
 
@@ -123,7 +124,6 @@ function App() {
     );
   }
 
-  const dateTime = currentDateTime();
   return (
     <>
       <Container className={classes.container}>
@@ -131,17 +131,17 @@ function App() {
           <Grid item xs={12}>
             <Box className={classes.topBox}>
               <Box component="img" alt="Website Logo" src={Logo} className={classes.appLogo}/>
-              <Typography variant="body2" className={classes.topTime}>
-                {dateTime}
-              </Typography>
-              <Link
-                href="https://github.com/nikhilyadvv"
-                target="_blank"
-                underline="none"
-                sx={{ display: "flex" }}
-              >
-                <GitHubIcon className={classes.git_icon} />
-              </Link>
+              <Box className={classes.topLinks}>
+                <Link href="https://www.buymeacoffee.com/nikhilyadav" target="_blank" >
+                  <img src={Bmc} alt="Buy Me a Coffee" className={classes.bmc_icon} />
+                </Link>
+                <Link href="https://www.linkedin.com/in/nikhilyadvv" target="_blank" >
+                  <LinkedInIcon className={classes.linkedin_icon} />
+                </Link>
+                <Link href="https://github.com/nikhilyadvv" target="_blank" >
+                  <GitHubIcon className={classes.git_icon} />
+                </Link>
+              </Box>
             </Box>
             <Search onSearchChange={handleOnSearchChange} />
           </Grid> 

@@ -1,6 +1,7 @@
 import { makeStyles } from "@mui/styles";
 import theme from "../../theme";
 import SplashIcon from "./scales.svg";
+import Bmc2 from "./bmc2.png";
 
 const useStyles = makeStyles((muiTheme) => ({
   container: {
@@ -133,38 +134,68 @@ const useStyles = makeStyles((muiTheme) => ({
   topBox: {
     display: "flex",
     justifyContent: "space-between",
-    alignItems: "center",
+    alignItems: "flex-start",
     width: "100%",
     marginBottom: "1rem",
   },
 
   appLogo: {
+    display: "flex",
+    alignItems: "flex-start",
     [theme.breakpoints.up("xs")]: {
-      height: "26px",
-    },
-    [theme.breakpoints.up("sm")]: {
       height: "30px",
     },
+    [theme.breakpoints.up("sm")]: {
+      height: "34px",
+    },
     [theme.breakpoints.up("md")]: {
-      height: "32px",
+      height: "36px",
     },
     width: "auto",
   },
 
-  topTime: {
+  topLinks: {
+    display: "flex",
     [theme.breakpoints.up("xs")]: {
-      fontSize: "12px !important",
+      gap: "0.7rem",
     },
     [theme.breakpoints.up("sm")]: {
-      fontSize: "16px !important",
+      gap: "1rem",
+    },
+  },
+
+  bmc_icon: {
+    display: "flex",
+    [theme.breakpoints.up("xs")]: {
+      height: "27px !important",
+    },
+    [theme.breakpoints.up("sm")]: {
+      height: "31px !important",
     },
     [theme.breakpoints.up("md")]: {
-      fontSize: "18px !important",
+      height: "33px !important",
     },
-    color: "rgba(255,255,255,.7)",
+    color: "white",
+    "&:hover": { content: `url(${Bmc2})` },
+  },
+
+  linkedin_icon: {
+    display: "flex",
+    [theme.breakpoints.up("xs")]: {
+      fontSize: "29px !important",
+    },
+    [theme.breakpoints.up("sm")]: {
+      fontSize: "33px !important",
+    },
+    [theme.breakpoints.up("md")]: {
+      fontSize: "35px !important",
+    },
+    color: "white",
+    "&:hover": { color: "#2d95bd" },
   },
 
   git_icon: {
+    display: "flex",
     [theme.breakpoints.up("xs")]: {
       fontSize: "26px !important",
     },
@@ -175,7 +206,7 @@ const useStyles = makeStyles((muiTheme) => ({
       fontSize: "32px !important",
     },
     color: "white",
-    "&:hover": { color: "#2d95bd" },
+    "&:hover": { color: "#808080" },
   },
 
   section: {
