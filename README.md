@@ -1,5 +1,5 @@
-## Overview
-With [Clime](https://clime.live/) you can search locations by city name and observe the weather for the next 5-6 days and 3 hour interval.
+# Overview
+[Clime](https://clime.live/) enables users to search for weather information by entering a city name. Users can access current weather conditions and forecasts for the next 4-5 days, including detailed forecasts for the upcoming hours at 3-hour intervals. Additionally, [Clime](https://clime.live/) allows users to view the weather for their current location.
 
 The app is developed using React.js and material-UI.
 

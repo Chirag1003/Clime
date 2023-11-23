@@ -10,12 +10,10 @@ const GEO_API_OPTIONS = {
 const WEATHER_API_URL = process.env.REACT_APP_WEATHER_API_URL;
 const WEATHER_API_KEY = process.env.REACT_APP_WEATHER_API_KEY;
 
+// Fetch cities based on input using the Geo API
 export async function fetchCities(input) {
   try {
-    const response = await fetch(
-      `${GEO_API_URL}/cities?minPopulation=10000&namePrefix=${input}`,
-      GEO_API_OPTIONS
-    );
+    const response = await fetch( `${GEO_API_URL}/cities?minPopulation=10000&namePrefix=${input}`, GEO_API_OPTIONS );
 
     const data = await response.json();
     return data;
@@ -24,15 +22,12 @@ export async function fetchCities(input) {
   }
 }
 
+// Fetch weather data for a location using the Weather API
 export async function fetchWeatherData(lat, lon) {
   try {
     let [weatherPromise, forcastPromise] = await Promise.all([
-      fetch(
-        `${WEATHER_API_URL}/weather?lat=${lat}&lon=${lon}&appid=${WEATHER_API_KEY}&units=metric`
-      ),
-      fetch(
-        `${WEATHER_API_URL}/forecast?lat=${lat}&lon=${lon}&appid=${WEATHER_API_KEY}&units=metric`
-      ),
+      fetch( `${WEATHER_API_URL}/weather?lat=${lat}&lon=${lon}&appid=${WEATHER_API_KEY}&units=metric` ),
+      fetch( `${WEATHER_API_URL}/forecast?lat=${lat}&lon=${lon}&appid=${WEATHER_API_KEY}&units=metric` ),
     ]);
 
     const weatherResponse = await weatherPromise.json();
@@ -43,41 +38,43 @@ export async function fetchWeatherData(lat, lon) {
   }
 }
 
-export const getTodayForecastWeather = ( response, current_date ) => {
-  let all_today_forecasts = [];
+// Return Today's forecast weather details by filtering for upcoming hours
+export const getTodayForecastWeather = (response, currentDate) => {
+  let allTodayForecasts = [];
 
-  if (!response || Object.keys(response).length === 0 || response.cod === "404")
+  if (!response || Object.keys(response).length === 0 || response.cod === "404") {
     return [];
-  else
+  }
+  else {
     response?.list.slice().map((item) => {
-      if (item.dt_txt.startsWith(current_date.substring(0, 10))) {
-        if (item.dt_txt > current_date) {
-          all_today_forecasts.push({
+      if (item.dt_txt.startsWith(currentDate.substring(0, 10))) {
+        if (item.dt_txt > currentDate) {
+          allTodayForecasts.push({
             time: item.dt_txt.split(" ")[1].substring(0, 5),
             icon: item.weather[0].icon,
             temperature: Math.round(item.main.temp) + " °C",
           });
         }
       }
-      return all_today_forecasts;
+      return allTodayForecasts;
     });
-
-  if (all_today_forecasts.length < 7) {
-    return [...all_today_forecasts];
-  } else {
-    return all_today_forecasts.slice(-7,-1);
   }
-}
 
-export const getWeekForecastWeather = ( response, current_date ) => {
-  let all_week_forecasts = [];
+  return [...allTodayForecasts];
+};
 
-  if (!response || Object.keys(response).length === 0 || response.cod === "404")
+// Return the Week's forecast weather details by filtering the forecastResponse for next available dates and time at 12 noon
+export const getWeekForecastWeather = (response, currentDate) => {
+  let allWeekForecasts = [];
+
+  if (!response || Object.keys(response).length === 0 || response.cod === "404") {
     return [];
-  else 
-    all_week_forecasts = response.list.filter((item) => {
-      return (item.dt_txt.substring(0, 10) > current_date.substring(0, 10) && item.dt_txt.substring(11, 13) === "12");
+  }
+  else {
+    allWeekForecasts = response.list.filter((item) => {
+      return ( item.dt_txt.substring(0, 10) > currentDate.substring(0, 10) && item.dt_txt.substring(11, 13) === "12" );
     });
+  }
 
-    return all_week_forecasts;
-}
+  return allWeekForecasts;
+};

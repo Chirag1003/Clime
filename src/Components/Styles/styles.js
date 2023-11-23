@@ -27,6 +27,8 @@ const useStyles = makeStyles((muiTheme) => ({
     padding: "1rem 0 3rem",
   },
 
+  // Default Content
+
   emptyContainer: {
     display: "flex",
     flexDirection: "column",
@@ -63,6 +65,8 @@ const useStyles = makeStyles((muiTheme) => ({
     },
   },
 
+  // Loading Content
+
   loadingContainer: {
     display: "flex",
     justifyContent: "center",
@@ -94,6 +98,8 @@ const useStyles = makeStyles((muiTheme) => ({
     lineHeight: 1,
     fontFamily: "Poppins",
   },
+
+  // Error Content
 
   errorContainer: {
     display: "flex",
@@ -131,6 +137,8 @@ const useStyles = makeStyles((muiTheme) => ({
     textAlign: "center",
   },
 
+  // Navbar
+
   topBox: {
     display: "flex",
     justifyContent: "space-between",
@@ -164,7 +172,7 @@ const useStyles = makeStyles((muiTheme) => ({
     },
   },
 
-  bmc_icon: {
+  bmcIcon: {
     display: "flex",
     [theme.breakpoints.up("xs")]: {
       height: "27px !important",
@@ -179,7 +187,7 @@ const useStyles = makeStyles((muiTheme) => ({
     "&:hover": { content: `url(${Bmc2})` },
   },
 
-  linkedin_icon: {
+  linkedinIcon: {
     display: "flex",
     [theme.breakpoints.up("xs")]: {
       fontSize: "29px !important",
@@ -194,7 +202,7 @@ const useStyles = makeStyles((muiTheme) => ({
     "&:hover": { color: "#2d95bd" },
   },
 
-  git_icon: {
+  gitIcon: {
     display: "flex",
     [theme.breakpoints.up("xs")]: {
       fontSize: "26px !important",
@@ -208,6 +216,8 @@ const useStyles = makeStyles((muiTheme) => ({
     color: "white",
     "&:hover": { color: "#808080" },
   },
+
+  // Current Weather
 
   section: {
     padding: "2.5rem 0rem 0rem",
@@ -322,6 +332,8 @@ const useStyles = makeStyles((muiTheme) => ({
     padding: "0",
   },
 
+  // Weather Conditions
+
   conditionBox: {
     display: "flex",
     alignItems: "center",
@@ -378,6 +390,8 @@ const useStyles = makeStyles((muiTheme) => ({
       fontSize: "16px !important",
     },
   },
+
+  // Today's forecast
 
   hourForecast: {
     display: "flex",
@@ -460,6 +474,8 @@ const useStyles = makeStyles((muiTheme) => ({
     lineHeight: 1,
     fontFamily: "Poppins",
   },
+
+  // Weekly Forecast
 
   weekSectionHeader: {
     [theme.breakpoints.up("xs")]: {
