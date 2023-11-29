@@ -19,6 +19,7 @@ function App() {
 
   const [lat, setLat] = useState();
   const [lon, setLon] = useState();
+  const [city, setCity] = useState();
   const [todayWeather, setTodayWeather] = useState(null);
   const [todayForecast, setTodayForecast] = useState(null);
   const [weekForecast, setWeekForecast] = useState(null);
@@ -34,13 +35,18 @@ function App() {
         const [todayWeatherResponse, weekForecastResponse] = await fetchWeatherData(lat, lon);
         const todayForecastsList = getTodayForecastWeather( weekForecastResponse, currentDate );
         const weekForecastsList = getWeekForecastWeather( weekForecastResponse, currentDate );
-        const city = todayWeatherResponse.name + ", " + todayWeatherResponse.sys.country;
-
-        setTodayWeather({ city, ...todayWeatherResponse });
+        
+        if(!city) {
+          const cityName = todayWeatherResponse.name + ", " + todayWeatherResponse.sys.country;
+          setCity(cityName);
+          setTodayWeather({city:cityName, ...todayWeatherResponse });
+        }
+        if(city) {
+          setTodayWeather({city:city, ...todayWeatherResponse });
+        }
         setTodayForecast([...todayForecastsList]);
         setWeekForecast([...weekForecastsList]);
 
-        document.title = `Clime - ${city}`;
         setIsLoading(false);
       } catch (error) {
         setError(true);
@@ -61,6 +67,13 @@ function App() {
     }
   }, []);
 
+  // Update document title when the city changes
+  useEffect(() => {
+    if(city) {
+      document.title = `Clime - ${city.slice(0,city.length-4)}`;
+    }
+  }, [city]);
+
   // Fetch data whenever latitude or longitude changes
   useEffect(() => {
     fetchData();
@@ -71,6 +84,7 @@ function App() {
   const handleOnSearchChange = (searchData) => {
     setLat(searchData.value.split(" ")[0]);
     setLon(searchData.value.split(" ")[1]);
+    setCity(searchData.label);
   };
 
   let weatherContent = (
