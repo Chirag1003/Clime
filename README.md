@@ -3,7 +3,9 @@
 
 The app is developed using React.js and material-UI.
 
-## 💻 Live Demo:
+## 💻 Some Screenshots of Clime Weather Project:
+![image](https://github.com/user-attachments/assets/333b69de-459b-459e-9764-7bd1fa96ae2c)
+
 
 
 ## ⚡ Install the Project
