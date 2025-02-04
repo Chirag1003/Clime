@@ -10,7 +10,7 @@ const Search = ({ onSearchChange }) => {
     onSearchChange(searchData);
   };
 
-  // Function to asynchronously load options for the city based on search
+  // Function to asynchronously load options for the city based upon search
   // Returns an array of options, where each option has a 'value' in the format 'lat lon'
   // and a 'label' in the format 'city name, country code'
   const loadOptions = async (inputValue) => {
