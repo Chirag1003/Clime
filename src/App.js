@@ -25,7 +25,9 @@ function App() {
   const [weekForecast, setWeekForecast] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(false);
-
+  console.log("Weather API Key:", process.env.REACT_APP_WEATHER_API_KEY);
+  console.log("GeoDB API Key:", process.env.REACT_APP_GEO_API_KEY);
+  
   // Function to fetch weather data if latitude and longitude are available
   const fetchData = async () => {
     if (lat && lon) {
@@ -141,13 +143,14 @@ function App() {
             <Box className={classes.topBox}>
               <Box component="img" alt="Website Logo" src={Logo} className={classes.appLogo} />
               <Box className={classes.topLinks}>
-                <Link href="https://www.buymeacoffee.com/nikhilyadav" target="_blank" >
+                <Link href="https://buymeacoffee.com/chirag1003
+" target="_blank" >
                   <img src={Bmc} alt="Buy Me a Coffee" className={classes.bmcIcon} />
                 </Link>
-                <Link href="https://www.linkedin.com/in/nikhilyadvv" target="_blank" >
+                <Link href="https://www.linkedin.com/in/chiragsangwan03/" target="_blank" >
                   <LinkedInIcon className={classes.linkedinIcon} />
                 </Link>
-                <Link href="https://github.com/nikhilyadvv" target="_blank">
+                <Link href="https://github.com/Chirag1003" target="_blank">
                   <GitHubIcon className={classes.gitIcon} />
                 </Link>
               </Box>
