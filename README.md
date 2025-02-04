@@ -11,7 +11,7 @@ https://www.clime.live
 
 - Clone the repository:
 ```bash
-git clone https://github.com/chirag1003/clime.git
+https://github.com/Chirag1003/Clime-Weather.git
 ```
 - Make sure you already have `Node.js` and `npm` installed in your system.
 - Get your API keys from OpenWeatherMap and GeoDB Cities(Rapid API).
